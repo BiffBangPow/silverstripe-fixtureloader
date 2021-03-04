@@ -97,7 +97,7 @@ class FixtureLoader
     {
         $fixturesDir = self::config()->get('fixtures_dir');
         if (($fixturesDir == "") || (!is_dir($fixturesDir))) {
-            $fixturesDir = Director::baseFolder() . '/mysite/fixtures';
+            $fixturesDir = rtrim(Director::baseFolder(), '/') . '/mysite/fixtures';
         }
 
         echo "Scanning " . $fixturesDir . "\n";
@@ -247,7 +247,7 @@ class FixtureLoader
     {
         $fileBluePrint = Injector::inst()->create(FixtureBlueprint::class, $class);
         $fileBluePrint->addCallback('afterCreate', function (File $file, $identifier, $data) {
-            $appRoot = __DIR__ . "/../../../";
+            $appRoot = rtrim(Director::baseFolder(), '/') . '/';
             $source = $appRoot . $data['Source'];
 
             $file->setFromLocalFile($source);
