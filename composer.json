@@ -1,0 +1,31 @@
+{
+  "name": "biffbangpow/silverstripe-fixtureloader",
+  "description": "Allows population of content on a new site",
+  "type": "silverstripe-vendormodule",
+  "homepage": "https://github.com/BiffBangPow/silverstripe-fixtureloader",
+  "keywords": [
+    "silverstripe",
+    "dev",
+    "content"
+  ],
+  "authors": [
+    {
+      "name": "Tim Burt",
+      "email": "tim@biffbangpow.com"
+    }
+  ],
+  "require": {
+    "silverstripe/vendor-plugin": "^1.0",
+    "silverstripe/cms": "^4.0",
+    "biffbangpow/silverstripe-assetshash": "dev-main"
+  },
+  "license": "BSD-3-Clause",
+  "autoload": {
+    "psr-4": {
+      "BiffBangPow\\FixtureLoader\\": "src/"
+    }
+  },
+  "extra": {
+  },
+  "minimum-stability": "dev"
+}
