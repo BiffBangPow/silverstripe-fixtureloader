@@ -10,6 +10,10 @@
   ],
   "authors": [
     {
+      "name": "James Heathcote",
+      "email": "james.h@biffbangpow.com"
+    },
+    {
       "name": "Tim Burt",
       "email": "tim@biffbangpow.com"
     }
@@ -17,7 +21,7 @@
   "require": {
     "silverstripe/vendor-plugin": "^1.0",
     "silverstripe/cms": "^4.0",
-    "biffbangpow/silverstripe-assetshash": "dev-main"
+    "biffbangpow/silverstripe-assetshash": "^1@stable"
   },
   "license": "BSD-3-Clause",
   "autoload": {
