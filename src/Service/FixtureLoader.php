@@ -97,7 +97,7 @@ class FixtureLoader
     {
         $fixturesDir = self::config()->get('fixtures_dir');
         if (($fixturesDir == "") || (!is_dir($fixturesDir))) {
-            $fixturesDir = rtrim(Director::baseFolder(), '/') . '/mysite/fixtures';
+            $fixturesDir = rtrim(Director::baseFolder(), '/') . '/app/fixtures';
         }
 
         echo "Scanning " . $fixturesDir . "\n";
