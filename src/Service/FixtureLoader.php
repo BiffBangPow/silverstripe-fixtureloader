@@ -114,13 +114,13 @@ class FixtureLoader
         $this->fixtureFactory->define(Member::class, $this->createMemberBluePrint());
 
         foreach (
-            array_merge($this->getClassesInNamespace('BiffBangPow\Pages'), $this->extraPageClasses) as $pageClass
+            array_merge($this->getClassesInNamespace('BiffBangPow\Page'), $this->extraPageClasses) as $pageClass
         ) {
             $this->fixtureFactory->define($pageClass, $this->createPublishedBluePrint($pageClass));
         }
 
         foreach (
-            array_merge($this->getClassesInNamespace('BiffBangPow\Elements'), $this->extraElementsClasses) as $elementClass
+            array_merge($this->getClassesInNamespace('BiffBangPow\Element'), $this->extraElementsClasses) as $elementClass
         ) {
             $this->fixtureFactory->define($elementClass, $this->createElementBluePrint($elementClass));
         }
