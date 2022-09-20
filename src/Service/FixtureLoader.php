@@ -49,7 +49,6 @@ class FixtureLoader
     private $faker;
 
     /**
-     * @config
      * @var array
      */
     private static $extra_page_classes = [
@@ -57,17 +56,16 @@ class FixtureLoader
     ];
 
     /**
-     * @config
      * @var array
      */
-    private $extra_elements_classes = [
+    private static $extra_element_classes = [
         ElementContent::class,
     ];
 
     /**
      * @var array
      */
-    private $fileClasses = [
+    private static $file_classes = [
         File::class,
         Image::class,
     ];
@@ -79,6 +77,19 @@ class FixtureLoader
     {
         $this->fixtureFactory = $fixtureFactory;
         $this->faker = Factory::create();
+
+        if (!is_array($this->config()->get('extra_page_classes'))) {
+            $this->config()->set('extra_page_classes', []);
+        }
+
+        if (!is_array($this->config()->get('extra_element_classes'))) {
+            $this->config()->set('extra_element_classes', []);
+        }
+
+        if (!is_array($this->config()->get('file_classes'))) {
+            $this->config()->set('file_classes', []);
+        }
+
     }
 
     /**
@@ -116,18 +127,18 @@ class FixtureLoader
         $this->fixtureFactory->define(Member::class, $this->createMemberBluePrint());
 
         foreach (
-            array_merge($this->getClassesInNamespace('BiffBangPow\Page'), (array)$this->config()->get('extra_page_classes')) as $pageClass
+            array_merge($this->getClassesInNamespace('BiffBangPow\Page'), $this->config()->get('extra_page_classes')) as $pageClass
         ) {
             $this->fixtureFactory->define($pageClass, $this->createPublishedBluePrint($pageClass));
         }
 
         foreach (
-            array_merge($this->getClassesInNamespace('BiffBangPow\Element'), (array)$this->config()->get('extra_elements_classes')) as $elementClass
+            array_merge($this->getClassesInNamespace('BiffBangPow\Element'), $this->config()->get('extra_element_classes')) as $elementClass
         ) {
             $this->fixtureFactory->define($elementClass, $this->createElementBluePrint($elementClass));
         }
 
-        foreach ($this->fileClasses as $fileClass) {
+        foreach ($this->config()->get('file_classes') as $fileClass) {
             $this->fixtureFactory->define($fileClass, $this->createFileBluePrint($fileClass));
         }
 
