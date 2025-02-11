@@ -20,7 +20,8 @@
   ],
   "require": {    
     "silverstripe/cms": "^4.0|^5.0",
-    "biffbangpow/silverstripe-assetshash": "^2"    
+    "biffbangpow/silverstripe-assetshash": "^2",
+    "fzaninotto/faker": "^1"
   },
   "license": "BSD-3-Clause",
   "autoload": {
